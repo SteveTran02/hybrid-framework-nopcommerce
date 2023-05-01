@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class Topic_06_Condition_Statement {
@@ -68,7 +70,7 @@ public class Topic_06_Condition_Statement {
 		driver.quit();
 	}
 	
-	// @Parameters("browser")
+	@Parameters("browser")
 	@Test
 	public void TC_03_If_Else_If_Else(String browserName) {
 		// Có nhiều điều kiện 
@@ -79,7 +81,7 @@ public class Topic_06_Condition_Statement {
 			driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-			driver = new ChromeDriver();
+			driver = new FirefoxDriver();
 		} else if (browserName.equalsIgnoreCase("edge")) {
 			System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
 			driver = new EdgeDriver();
@@ -95,7 +97,7 @@ public class Topic_06_Condition_Statement {
 		driver.quit();
 	}
 
-	@Test
+	// @Test
 	public void TC_04_If_Else_If_Else() {
 		// Page Object
 		// return loginPage
