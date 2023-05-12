@@ -1,4 +1,4 @@
-package PageFactory;
+package PageFactory.nopEcommerce;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import commons.BasePageFactory;
-import pageUIs.LoginPageUI;
+import pageUIs.nopEcomerce.LoginPageUI;
 
 public class LoginPageObject extends BasePageFactory {
 	WebDriver driver;

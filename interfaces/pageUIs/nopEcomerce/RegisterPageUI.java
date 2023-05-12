@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.nopEcomerce;
 
 public class RegisterPageUI {
 

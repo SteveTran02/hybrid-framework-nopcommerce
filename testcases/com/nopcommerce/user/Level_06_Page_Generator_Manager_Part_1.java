@@ -1,36 +1,33 @@
 package com.nopcommerce.user;
 
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import commons.BaseTest_NopEcommerce;
 import pageObjects.nopEcommerce.HomePageObject;
 import pageObjects.nopEcommerce.LoginPageObject;
 import pageObjects.nopEcommerce.RegisterPageObject;
 
-public class Level_03_Page_Object_02_Login {
+public class Level_06_Page_Generator_Manager_Part_1 extends BaseTest_NopEcommerce {
 	private WebDriver driver;
-	private String projectPath = System.getProperty("user.dir");
 	private String firstName, lastName, exsitingEmail, invalidEmail, notPoundEmail, validPassword, incorrectPassword, confirmPassword;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
 
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {
+	public void beforeClass(String browserName) {
+		driver = getBrowserDriver(browserName);
 
-		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-		driver = new FirefoxDriver();
-		driver.get("https://demo.nopcommerce.com/");
 		homePage = new HomePageObject(driver);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+
 		firstName = "Pure";
 		lastName = "Insight";
 		exsitingEmail = "pureinsight" + getRandomNumber() + "@gmail.com";
@@ -162,11 +159,6 @@ public class Level_03_Page_Object_02_Login {
 		System.out.println("Login_05 - Step 03: Verify login successfully");
 		homePage = new HomePageObject(driver);
 		Assert.assertTrue(homePage.isToMyAccountLink());
-	}
-
-	public int getRandomNumber() {
-		Random random = new Random();
-		return random.nextInt(9999);
 	}
 
 	@AfterClass(alwaysRun = true)

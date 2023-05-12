@@ -9,11 +9,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import commons.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
+import commons.BaseTest_NopEcommerce;
+import pageObjects.nopEcommerce.HomePageObject;
+import pageObjects.nopEcommerce.RegisterPageObject;
 
-public class Level_04_Multiple_Browser extends BaseTest {
+public class Level_04_Multiple_Browser extends BaseTest_NopEcommerce {
 	private WebDriver driver;
 	private String firstName, lastName, invalidEmailAddress, password, confirmPassword;
 	private HomePageObject homePage;

@@ -1,9 +1,9 @@
-package pageObjects;
+package pageObjects.nopEcommerce;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.RegisterPageUI;
+import pageUIs.nopEcomerce.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage {
 	private WebDriver driver;
@@ -77,14 +77,16 @@ public class RegisterPageObject extends BasePage {
 		return getElementText(driver, RegisterPageUI.REGISTER_SUCCESS_MESSAGE);
 	}
 
-	public void clickToRegisterLink() {
+	public RegisterPageObject clickToRegisterLink() {
 		waitForElementClickable(driver, RegisterPageUI.REGISTER_LINK);
 		clickToElement(driver, RegisterPageUI.REGISTER_LINK);
+		return PageGeneratorManager.getRegisterPage(driver);
 	}
 
-	public void clickToContinueButton() {
+	public HomePageObject clickToContinueButton() {
 		waitForElementClickable(driver, RegisterPageUI.CONTINUE_BUTTON);
 		clickToElement(driver, RegisterPageUI.CONTINUE_BUTTON);
+		return PageGeneratorManager.getHomePage(driver);
 	}
 
 }

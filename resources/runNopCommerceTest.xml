@@ -2,9 +2,9 @@
 <suite name="NopCommerce">
 
 	<test name="Run on Firefox">
-		<parameter name="browser" value="firefox" />
+		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.nopcommerce.user.Level_05_Page_Factory" />
+			<class name="com.nopcommerce.user.Level_06_Page_Generator_Manager_Part_3" />
 		</classes>
 	</test>
 
