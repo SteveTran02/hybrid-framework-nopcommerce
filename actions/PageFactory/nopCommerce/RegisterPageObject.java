@@ -1,4 +1,4 @@
-package PageFactory.nopEcommerce;
+package PageFactory.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import commons.BasePageFactory;
-import pageUIs.nopEcomerce.RegisterPageUI;
+import pageUIs.nopComerce.RegisterPageUI;
 
 public class RegisterPageObject extends BasePageFactory {
 	WebDriver driver;

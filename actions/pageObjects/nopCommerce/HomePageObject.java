@@ -1,9 +1,9 @@
-package pageObjects.nopEcommerce;
+package pageObjects.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.nopEcomerce.HomePageUI;
+import pageUIs.nopComerce.HomePageUI;
 
 public class HomePageObject extends BasePage {
 

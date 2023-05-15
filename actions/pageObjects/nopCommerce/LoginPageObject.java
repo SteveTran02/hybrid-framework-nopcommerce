@@ -1,10 +1,10 @@
-package pageObjects.nopEcommerce;
+package pageObjects.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.nopEcomerce.LoginPageUI;
-import pageUIs.nopEcomerce.RegisterPageUI;
+import pageUIs.nopComerce.LoginPageUI;
+import pageUIs.nopComerce.RegisterPageUI;
 
 public class LoginPageObject extends BasePage {
 
@@ -17,7 +17,6 @@ public class LoginPageObject extends BasePage {
 	public void inputToEmailTextbox(String invalidEmail) {
 		waitForElementVisible(driver, LoginPageUI.EMAIL_TEXTBOX);
 		sendkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, invalidEmail);
-
 	}
 
 	public void inputToPasswordTextbox(String validPassword) {

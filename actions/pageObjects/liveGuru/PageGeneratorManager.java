@@ -1,4 +1,4 @@
-package pageObjects.nopEcommerce;
+package pageObjects.liveGuru;
 
 import org.openqa.selenium.WebDriver;
 
@@ -15,4 +15,9 @@ public class PageGeneratorManager {
 	public static RegisterPageObject getRegisterPage(WebDriver driver) {
 		return new RegisterPageObject(driver);
 	}
+
+	public static DashBoardPageObject getDashBoardPage(WebDriver driver) {
+		return new DashBoardPageObject(driver);
+	}
+
 }

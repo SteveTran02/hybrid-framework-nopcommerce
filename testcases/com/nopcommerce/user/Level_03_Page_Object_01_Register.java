@@ -11,8 +11,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import pageObjects.nopEcommerce.HomePageObject;
-import pageObjects.nopEcommerce.RegisterPageObject;
+import pageObjects.nopCommerce.HomePageObject;
+import pageObjects.nopCommerce.RegisterPageObject;
 
 public class Level_03_Page_Object_01_Register {
 	private WebDriver driver;

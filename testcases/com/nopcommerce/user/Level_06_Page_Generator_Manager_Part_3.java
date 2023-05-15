@@ -7,13 +7,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import commons.BaseTest_NopEcommerce;
-import pageObjects.nopEcommerce.HomePageObject;
-import pageObjects.nopEcommerce.LoginPageObject;
-import pageObjects.nopEcommerce.PageGeneratorManager;
-import pageObjects.nopEcommerce.RegisterPageObject;
+import commons.BaseTest_NopCommerce;
+import pageObjects.nopCommerce.HomePageObject;
+import pageObjects.nopCommerce.LoginPageObject;
+import pageObjects.nopCommerce.PageGeneratorManager;
+import pageObjects.nopCommerce.RegisterPageObject;
 
-public class Level_06_Page_Generator_Manager_Part_3 extends BaseTest_NopEcommerce {
+public class Level_06_Page_Generator_Manager_Part_3 extends BaseTest_NopCommerce {
 
 	@Parameters("browser")
 	@BeforeClass
@@ -156,4 +156,5 @@ public class Level_06_Page_Generator_Manager_Part_3 extends BaseTest_NopEcommerc
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
+
 }

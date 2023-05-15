@@ -1,4 +1,4 @@
-package pageUIs.nopEcomerce;
+package pageUIs.nopComerce;
 
 public class HomePageUI {
 

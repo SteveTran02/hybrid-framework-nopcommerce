@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class BaseTest_NopEcommerce {
+public class BaseTest_NopCommerce {
 	private WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
 

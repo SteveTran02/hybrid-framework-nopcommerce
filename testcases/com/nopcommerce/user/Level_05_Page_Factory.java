@@ -8,12 +8,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import PageFactory.nopEcommerce.HomePageObject;
-import PageFactory.nopEcommerce.LoginPageObject;
-import PageFactory.nopEcommerce.RegisterPageObject;
-import commons.BaseTest_NopEcommerce;
+import PageFactory.nopCommerce.HomePageObject;
+import PageFactory.nopCommerce.LoginPageObject;
+import PageFactory.nopCommerce.RegisterPageObject;
+import commons.BaseTest_NopCommerce;
 
-public class Level_05_Page_Factory extends BaseTest_NopEcommerce {
+public class Level_05_Page_Factory extends BaseTest_NopCommerce {
 	private WebDriver driver;
 	private String firstName, lastName, exsitingEmail, invalidEmail, notPoundEmail, validPassword, incorrectPassword, confirmPassword;
 	private HomePageObject homePage;
