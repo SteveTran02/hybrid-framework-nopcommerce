@@ -40,7 +40,7 @@ public class Level_03_Page_Object_02_Login {
 		incorrectPassword = "123456";
 
 		System.out.println("Pre-Condition - Step 01: Click to Register link");
-		homePage.clickToRegisterLink();
+		homePage.openRegisterPage();
 		registerPage = new RegisterPageObject(driver);
 
 		System.out.println("Pre-Condition - Step 02: input to required fields ");
@@ -65,7 +65,7 @@ public class Level_03_Page_Object_02_Login {
 	@Test
 	public void Login_01_Empty_Data() {
 		System.out.println("Login_01 - Step 01: Click to Login link");
-		homePage.clickToLoginLink();
+		homePage.openLoginPage();
 		loginPage = new LoginPageObject(driver);
 
 		System.out.println("Login_01 - Step 02: Click to Login button");
@@ -79,7 +79,7 @@ public class Level_03_Page_Object_02_Login {
 	@Test
 	public void Login_02_Invalid_Email() {
 		System.out.println("Login_02 - Step 01: Click to Login link");
-		homePage.clickToLoginLink();
+		homePage.openLoginPage();
 		loginPage = new LoginPageObject(driver);
 
 		System.out.println("Login_02 - Step 02: Input into required textbox");
@@ -97,7 +97,7 @@ public class Level_03_Page_Object_02_Login {
 	@Test
 	public void Login_03_Email_Not_Pound() {
 		System.out.println("Login_03 - Step 01: Click to Login link");
-		homePage.clickToLoginLink();
+		homePage.openLoginPage();
 		loginPage = new LoginPageObject(driver);
 
 		System.out.println("Login_03 - Step 02: Input into required textbox");
@@ -114,7 +114,7 @@ public class Level_03_Page_Object_02_Login {
 	@Test
 	public void Login_04_Existing_Email_Empty_Password() {
 		System.out.println("Login_04 - Step 01: Click to Login link");
-		homePage.clickToLoginLink();
+		homePage.openLoginPage();
 		loginPage = new LoginPageObject(driver);
 
 		System.out.println("Login_04 - Step 02: Input into required textbox");
@@ -131,7 +131,7 @@ public class Level_03_Page_Object_02_Login {
 	@Test
 	public void Login_05_Existing_Email_Incorrect_Password() {
 		System.out.println("Login_05 - Step 01: Click to Login link");
-		homePage.clickToLoginLink();
+		homePage.openLoginPage();
 		loginPage = new LoginPageObject(driver);
 
 		System.out.println("Login_05 - Step 02: Input into required textbox");
@@ -149,7 +149,7 @@ public class Level_03_Page_Object_02_Login {
 	@Test
 	public void Login_06_Valid_Email_Password() {
 		System.out.println("Login_05 - Step 01: Click to Login link");
-		homePage.clickToLoginLink();
+		homePage.openLoginPage();
 		loginPage = new LoginPageObject(driver);
 
 		System.out.println("Login_05 - Step 02: Input into required textbox");

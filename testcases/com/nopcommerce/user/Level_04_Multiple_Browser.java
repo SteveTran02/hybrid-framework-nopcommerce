@@ -34,7 +34,7 @@ public class Level_04_Multiple_Browser extends BaseTest_NopCommerce {
 	@Test
 	public void Register_01_Register_Empty_Data() {
 		System.out.println("Register_01 - Step 01: Click to Register link");
-		homePage.clickToRegisterLink();
+		homePage.openRegisterPage();
 		registerPage = new RegisterPageObject(driver);
 
 		System.out.println("Register_01 - Step 02: Click to Register button");
@@ -51,7 +51,7 @@ public class Level_04_Multiple_Browser extends BaseTest_NopCommerce {
 	@Test
 	public void Register_02_Register_Invalid_Email() {
 		System.out.println("Register_02 - Step 01: Click to Register link");
-		homePage.clickToRegisterLink();
+		homePage.openRegisterPage();
 		registerPage = new RegisterPageObject(driver);
 
 		System.out.println("Register_02 - Step 02: input to required fields ");

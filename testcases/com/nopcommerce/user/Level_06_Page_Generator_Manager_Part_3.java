@@ -31,7 +31,7 @@ public class Level_06_Page_Generator_Manager_Part_3 extends BaseTest_NopCommerce
 		incorrectPassword = "123456";
 
 		System.out.println("Pre-Condition - Step 01: Click to Register link");
-		registerPage = homePage.clickToRegisterLink();
+		registerPage = homePage.openRegisterPage();
 
 		System.out.println("Pre-Condition - Step 02: input to required fields ");
 		registerPage.inputToFirstNameTextbox(firstName);
@@ -54,7 +54,7 @@ public class Level_06_Page_Generator_Manager_Part_3 extends BaseTest_NopCommerce
 	@Test
 	public void Login_01_Empty_Data() {
 		System.out.println("Login_01 - Step 01: Click to Login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 
 		System.out.println("Login_01 - Step 02: Click to Login button");
 		loginPage.clickToLoginButton();
@@ -67,7 +67,7 @@ public class Level_06_Page_Generator_Manager_Part_3 extends BaseTest_NopCommerce
 	@Test
 	public void Login_02_Invalid_Email() {
 		System.out.println("Login_02 - Step 01: Click to Login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 
 		System.out.println("Login_02 - Step 02: Input into required textbox");
 		loginPage.inputToEmailTextbox(invalidEmail);
@@ -84,7 +84,7 @@ public class Level_06_Page_Generator_Manager_Part_3 extends BaseTest_NopCommerce
 	@Test
 	public void Login_03_Email_Not_Pound() {
 		System.out.println("Login_03 - Step 01: Click to Login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 
 		System.out.println("Login_03 - Step 02: Input into required textbox");
 		loginPage.inputToEmailTextbox(notPoundEmail);
@@ -100,7 +100,7 @@ public class Level_06_Page_Generator_Manager_Part_3 extends BaseTest_NopCommerce
 	@Test
 	public void Login_04_Existing_Email_Empty_Password() {
 		System.out.println("Login_04 - Step 01: Click to Login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 
 		System.out.println("Login_04 - Step 02: Input into required textbox");
 		loginPage.inputToEmailTextbox(exsitingEmail);
@@ -116,7 +116,7 @@ public class Level_06_Page_Generator_Manager_Part_3 extends BaseTest_NopCommerce
 	@Test
 	public void Login_05_Existing_Email_Incorrect_Password() {
 		System.out.println("Login_05 - Step 01: Click to Login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 
 		System.out.println("Login_05 - Step 02: Input into required textbox");
 		loginPage.inputToEmailTextbox(exsitingEmail);
@@ -133,7 +133,7 @@ public class Level_06_Page_Generator_Manager_Part_3 extends BaseTest_NopCommerce
 	@Test
 	public void Login_06_Valid_Email_Password() {
 		System.out.println("Login_05 - Step 01: Click to Login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 
 		System.out.println("Login_05 - Step 02: Input into required textbox");
 		loginPage.inputToEmailTextbox(exsitingEmail);
