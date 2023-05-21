@@ -17,7 +17,7 @@ import pageObjects.nopCommerce.user.UserMyProductReviewPageObject;
 import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardPointPageObject;
 
-public class Level_07_Switch_Page extends BaseTest {
+public class Level_09_Dynamic_Locator extends BaseTest {
 
 	@Parameters("browser")
 	@BeforeClass
@@ -33,7 +33,7 @@ public class Level_07_Switch_Page extends BaseTest {
 	}
 
 	@Test
-	public void User_01_Register() {
+	public void User_01_Register_Login() {
 		registerPage = homePage.openRegisterPage();
 
 		registerPage.inputToFirstNameTextbox(firstName);
@@ -42,29 +42,22 @@ public class Level_07_Switch_Page extends BaseTest {
 		registerPage.inputToPasswordTextbox(password);
 		registerPage.inputToConfirmPasswordTextbox(confirmPassword);
 		registerPage.clickToRegisterButton();
-
 		Assert.assertEquals(registerPage.getSuccessMessage(), "Your registration completed");
 
 		homePage = registerPage.clickToContinueButton();
-	}
 
-	@Test
-	public void User_02_Login() {
 		loginPage = homePage.openLoginPage();
 		loginPage.inputToEmailTextbox(EmailAddress);
 		loginPage.inputToPasswordTextbox(password);
 		homePage = loginPage.clickToLoginButton();
 		Assert.assertTrue(homePage.isToMyAccountLink());
-	}
 
-	@Test
-	public void User_03_Customer_Info() {
 		customerInfoPage = homePage.openMyAccountPage(driver);
 		Assert.assertTrue(customerInfoPage.isToCustomerInfoPageDisplayed());
 	}
 
 	@Test
-	public void User_04_Switch_Page() {
+	public void User_02_Switch_Page() {
 		// Knowledge của page object
 		// Khi page A chuyển sang page B thì phải viết 1 hàm
 		// ( action, open, click... : link/button/image/...) để mở page B lên
@@ -81,16 +74,31 @@ public class Level_07_Switch_Page extends BaseTest {
 		rewardPointPage = addressPage.openRewardPointPage(driver);
 		// Reward points -> My product review
 		myProductReviewPage = rewardPointPage.openMyProductReviewPage(driver);
-		// My product review -> Address
-		addressPage = myProductReviewPage.openAddressPage(driver);
 	}
 
 	@Test
-	public void User_05_Switch_Role() {
-		// User role -> Admin role
+	public void User_03_Dynamic_Page_01() {
+		// My product review -> Reward points
+		rewardPointPage = (UserRewardPointPageObject) myProductReviewPage.openPagesAtMyAccountByName(driver, "Reward points");
+		// Reward points -> Address
+		addressPage = (UserAddressPageObject) rewardPointPage.openPagesAtMyAccountByName(driver, "Addresses");
+		// Address -> Reward points
+		rewardPointPage = (UserRewardPointPageObject) addressPage.openPagesAtMyAccountByName(driver, "Reward points");
+		// Reward points -> My product review
+		myProductReviewPage = (UserMyProductReviewPageObject) rewardPointPage.openPagesAtMyAccountByName(driver, "My product reviews");
+	}
 
-		// Admin role -> User role
-
+	@Test
+	public void User_03_Dynamic_Page_02() {
+		// My product review -> Customer info
+		myProductReviewPage.openPagesAtMyAccountByPageName(driver, "Customer info");
+		customerInfoPage = PageGeneratorManager.getUserCustomerInfoPage(driver);
+		// Customer info -> Reward points
+		customerInfoPage.openPagesAtMyAccountByPageName(driver, "Reward points");
+		rewardPointPage = PageGeneratorManager.getUserRewardPointPage(driver);
+		// Reward points -> Address
+		rewardPointPage.openPagesAtMyAccountByPageName(driver, "Addresses");
+		addressPage = PageGeneratorManager.getUserAddressPage(driver);
 	}
 
 	@AfterClass(alwaysRun = true)

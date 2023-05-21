@@ -8,7 +8,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class BaseTest_NopCommerce {
+public class BaseTest {
+
 	private WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
 
@@ -28,7 +29,7 @@ public class BaseTest_NopCommerce {
 			throw new RuntimeException("Browser name invalid");
 		}
 		driver.manage().window().maximize();
-		driver.get("https://demo.nopcommerce.com/");
+		driver.get(GlobalConstants.PORTAL_PAGE_URL);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		return driver;
 	}
