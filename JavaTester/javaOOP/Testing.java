@@ -1,32 +1,17 @@
 package javaOOP;
 
-public class Testing extends Animal {
+public class Testing {
 
 	public static void main(String[] args) {
-		// Truy cập trực tiếp từ tên class
-		// Không cần tạo instance/ object
-		// Không nên lạm dụng tạo các biến là static
+		Topic_06_Getter_Setter topic = new Topic_06_Getter_Setter();
+		topic.setPersonName("Pure");
+		topic.setPersonAge(20);
+		topic.setPersonBankAccountMount(10);
 
-		System.out.println(Topic_04_Non_Access_Modifier.browserName);
-		Topic_04_Non_Access_Modifier.browserName = "Internet Explorer";
-		System.out.println(Topic_04_Non_Access_Modifier.browserName);
-
-		// Khởi tạo các class
-		Topic_04_Non_Access_Modifier.clickToElement("click to dropdown list");
-
-		Topic_04_Non_Access_Modifier topic = new Topic_04_Non_Access_Modifier();
-		System.out.println(topic.carColor);
-
+		System.out.println(topic.getPersonName());
+		System.out.println(topic.getPersonAge());
+		System.out.println(topic.getPersonPhone());
+		System.out.println(topic.getPersonBankAccountMount());
 	}
 
-	// static class_ nestedclass
-	public static void NestedTesting() {
-
-	}
-
-	@Override
-	public void setAnimalName() {
-		// TODO Auto-generated method stub
-
-	}
 }
