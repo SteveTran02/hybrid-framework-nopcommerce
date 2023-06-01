@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import exception.BrowserNotSupport;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
@@ -27,7 +28,7 @@ public class BaseTest {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		} else {
-			throw new RuntimeException("Browser name invalid");
+			throw new BrowserNotSupport(browserName);
 		}
 		driver.manage().window().maximize();
 		driver.get(GlobalConstants.PORTAL_PAGE_URL);
