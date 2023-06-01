@@ -32,7 +32,7 @@ public class BaseTest {
 		}
 		driver.manage().window().maximize();
 		driver.get(GlobalConstants.PORTAL_PAGE_URL);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		return driver;
 	}
 

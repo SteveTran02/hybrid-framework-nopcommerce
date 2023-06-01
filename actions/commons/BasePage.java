@@ -30,7 +30,7 @@ public class BasePage {
 		return new BasePage();
 	}
 
-	private long longTimeOut = 30;
+	private long longTimeOut = GlobalConstants.LONG_TIMEOUT;
 
 	public void openPageUrl(WebDriver driver, String pageUrl) {
 		driver.get(pageUrl);
