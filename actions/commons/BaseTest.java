@@ -19,9 +19,13 @@ public class BaseTest {
 	protected WebDriver getBrowserDriver(String browserName) {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
 		if (browser == BrowserList.FIREFOX) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+			// System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+			// driver = new FirefoxDriver();
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		} else if (browser == BrowserList.CHROME) {
+			// System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+			// driver = new ChromeDriver();
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		} else if (browser == BrowserList.EDGE) {
@@ -36,7 +40,27 @@ public class BaseTest {
 		return driver;
 	}
 
-	private String getEnvironmentUrl(String serverName) {
+	protected WebDriver getBrowserDriver(String browserName, String appUrl) {
+		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
+		if (browser == BrowserList.FIREFOX) {
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+		} else if (browser == BrowserList.CHROME) {
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+		} else if (browser == BrowserList.EDGE) {
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+		} else {
+			throw new BrowserNotSupport(browserName);
+		}
+		driver.manage().window().maximize();
+		driver.get(appUrl);
+		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		return driver;
+	}
+
+	protected String getEnvironmentUrl(String serverName) {
 		String envUrl = null;
 		EnvironmentList environment = EnvironmentList.valueOf(serverName.toUpperCase());
 		if (environment == EnvironmentList.DEV) {
