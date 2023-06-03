@@ -114,7 +114,7 @@ public class BasePage {
 		}
 	}
 
-	private By getByLocator(String locatorType) {
+	public By getByLocator(String locatorType) {
 		By by = null;
 		if (locatorType.startsWith("id=") || locatorType.startsWith("Id=") || locatorType.startsWith("ID=")) {
 			by = By.id(locatorType.substring(3));
@@ -132,7 +132,7 @@ public class BasePage {
 		return by;
 	}
 
-	private String getDynamicXpath(String locatorType, String... dynamicValues) {
+	public String getDynamicXpath(String locatorType, String... dynamicValues) {
 		if (locatorType.startsWith("xpath=") || locatorType.startsWith("Xpath=") || locatorType.startsWith("XPath=") || locatorType.startsWith("XPATH=")) {
 			locatorType = String.format(locatorType, (Object[]) dynamicValues);
 		}

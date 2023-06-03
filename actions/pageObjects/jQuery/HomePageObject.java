@@ -33,24 +33,28 @@ public class HomePageObject extends BasePage {
 		return isElementDisplayed(driver, HomePageUI.PAGINATION_PAGE_ACTIVED_BY_NUMBER, pageNumber);
 	}
 
-	public void getValueEachRowAtAllPage() {
+	public List<String> getValueEachRowAtAllPage() {
 		int totalPage = getElementSize(driver, HomePageUI.TOTAL_PAGINATION);
 		System.out.println("total page = " + totalPage);
-		List<String> allRowValueAllPage = new ArrayList<String>();
 
+		// Array List lưu tất cả value của mỗi row tất cả page
+		List<String> allRowValueAllPage = new ArrayList<String>();
+		// Set<String> allRowValueUniqueAllPage = new HashSet<>();
+
+		// Duyệt qua tất cả page number - paging
 		for (int index = 1; index <= totalPage; index++) {
 			clickToElement(driver, HomePageUI.PAGINATION_PAGE_BY_INDEX, String.valueOf(index));
-
-			List<WebElement> allRowElementEachPage = getListWebElement(driver, HomePageUI.ALL_ROW_EACH_PAGE);
-			for (WebElement eachRow : allRowElementEachPage) {
-				allRowValueAllPage.add(eachRow.getText());
+			// Get text tất cả row value của mỗi page đưa vào ArrayList
+			List<WebElement> allRowElementCountryEachPage = getListWebElement(driver, HomePageUI.ALL_ROW_COUNTRY_EACH_PAGE);
+			for (WebElement country : allRowElementCountryEachPage) {
+				allRowValueAllPage.add(country.getText());
 			}
 		}
-
+		// in tất cả value của tất cả các page
 		for (String value : allRowValueAllPage) {
-			System.out.println("---------------------------------");
 			System.out.println(value);
 		}
-
+		return allRowValueAllPage;
 	}
+
 }

@@ -1,5 +1,7 @@
 package com.jquery.datatable;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -55,7 +57,13 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 
 	@Test
 	public void Table_03_Get_Value_Row() {
-		homePage.getValueEachRowAtAllPage();
+		// Đọc data của file country.txt
+		// Lưu vào List<String> -> expected value = expectedAllCountryValues
+
+		actualAllCountryValue = homePage.getValueEachRowAtAllPage();
+
+		// Verify
+		Assert.assertEquals(actualAllCountryValue, expectedAllCountryValues);
 	}
 
 	@AfterClass(alwaysRun = true)
@@ -65,4 +73,6 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 
 	private WebDriver driver;
 	private HomePageObject homePage;
+	List<String> actualAllCountryValue;
+	List<String> expectedAllCountryValues;
 }
