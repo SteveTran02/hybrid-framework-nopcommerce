@@ -14,18 +14,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
 
 	private WebDriver driver;
-	private String projectPath = System.getProperty("user.dir");
 
 	protected WebDriver getBrowserDriver(String browserName) {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
 		if (browser == BrowserList.FIREFOX) {
-			// System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-			// driver = new FirefoxDriver();
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		} else if (browser == BrowserList.CHROME) {
-			// System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-			// driver = new ChromeDriver();
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		} else if (browser == BrowserList.EDGE) {

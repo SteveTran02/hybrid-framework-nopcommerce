@@ -55,7 +55,6 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 		homePage.enterToHeaderTextboxByLabel("Total", "800337");
 	}
 
-	@Test
 	public void Table_03_Get_Value_Row() {
 		// Đọc data của file country.txt
 		// Lưu vào List<String> -> expected value = expectedAllCountryValues
@@ -64,6 +63,48 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 
 		// Verify
 		Assert.assertEquals(actualAllCountryValue, expectedAllCountryValues);
+	}
+
+	@Test
+	public void Table_04_Enter_To_Textbox_At_Any_Row() {
+		// homePage.clickToLoadDataButton();
+		// homePage.sleepInSecond(3);
+		/*
+		 * Parameters 1_ Column name: Company/ Contact person/ Order placed 2_ Row number 3_ data value
+		 */
+
+		// Send key to textbox
+		homePage.enterToTextboxByColumnNameAtRowNumber("Company", "1", "Bosch");
+		homePage.enterToTextboxByColumnNameAtRowNumber("Contact Person", "1", "Robert Bosch");
+		// select to default drop down list
+		homePage.selectDropdownByColumnNameAtRowNumber("Country", "1", "Germany");
+		// uncheck to check box
+		homePage.uncheckToCheckboxByColumnNameAtRowNumber("NPO?", "1");
+		homePage.enterToTextboxByColumnNameAtRowNumber("Order Placed", "1", "99");
+
+		homePage.enterToTextboxByColumnNameAtRowNumber("Company", "2", "CMC GLobal");
+		homePage.enterToTextboxByColumnNameAtRowNumber("Contact Person", "2", "Van");
+		homePage.selectDropdownByColumnNameAtRowNumber("Country", "2", "Taiwan");
+		// check to check box
+		homePage.checkToCheckboxByColumnNameAtRowNumber("NPO?", "2");
+		homePage.enterToTextboxByColumnNameAtRowNumber("Order Placed", "2", "100");
+
+		homePage.enterToTextboxByColumnNameAtRowNumber("Company", "3", "Logigear");
+		homePage.enterToTextboxByColumnNameAtRowNumber("Contact Person", "3", "Tuan");
+		homePage.selectDropdownByColumnNameAtRowNumber("Country", "3", "United Kingdom");
+		homePage.checkToCheckboxByColumnNameAtRowNumber("NPO?", "3");
+		homePage.enterToTextboxByColumnNameAtRowNumber("Order Placed", "3", "101");
+
+		// click icon name: Insert Row Above/ Remove Current Row/ Move Up/ Move Down
+		homePage.clickToIconByRowNumber("1", "Insert Row Above");
+		homePage.clickToIconByRowNumber("2", "Remove Current Row");
+		homePage.clickToIconByRowNumber("3", "Move Up");
+		homePage.clickToIconByRowNumber("2", "Move Down");
+
+		homePage.clickToIconByRowNumber("3", "Remove Current Row");
+		homePage.clickToIconByRowNumber("2", "Remove Current Row");
+		homePage.clickToIconByRowNumber("1", "Remove Current Row");
+
 	}
 
 	@AfterClass(alwaysRun = true)
