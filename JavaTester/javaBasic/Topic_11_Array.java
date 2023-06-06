@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 import org.testng.annotations.Test;
 
+import commons.GlobalConstants;
+
 public class Topic_11_Array {
 
 	// @Test
@@ -65,7 +67,7 @@ public class Topic_11_Array {
 		}
 	}
 
-	@Test
+	// @Test
 	public void TC_04_Phuong_Thuc_Cua_Mang() {
 
 		// Covert Array to List
@@ -98,4 +100,15 @@ public class Topic_11_Array {
 
 	}
 
+	@Test
+	public void TC_05() {
+		String fileName[] = { "caohung.jpg", "dainam.jpg", "taipei.jpg" };
+		String path = GlobalConstants.UPLOAD_FILE;
+		String fullFileName = "";
+		for (String file : fileName) {
+			fullFileName = fullFileName + path + file + "\n";
+		}
+		fullFileName = fullFileName.trim();
+		System.out.println(fullFileName);
+	}
 }
