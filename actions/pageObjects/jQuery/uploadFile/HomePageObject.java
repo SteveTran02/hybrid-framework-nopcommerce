@@ -21,10 +21,10 @@ public class HomePageObject extends BasePage {
 	}
 
 	public void clickToStartButton() {
-		List<WebElement> startButtons = getListWebElement(driver, HomePageUI.START_BUTTON);
-		for (WebElement startButton : startButtons) {
+		List<WebElement> allStartButton = getListWebElement(driver, HomePageUI.START_BUTTON);
+		for (WebElement startButton : allStartButton) {
 			startButton.click();
-			sleepInSecond(2);
+			sleepInSecond(3);
 		}
 	}
 
@@ -35,7 +35,7 @@ public class HomePageObject extends BasePage {
 
 	public boolean isFileImageUpLoadedByName(String fileName) {
 		waitForElementVisible(driver, HomePageUI.FILE_NAME_UPLOADED_IMAGE, fileName);
-		return isImageLoaded(driver, HomePageUI.FILE_NAME_UPLOADED_IMAGE, fileName);
+		return isElementDisplayed(driver, HomePageUI.FILE_NAME_UPLOADED_IMAGE, fileName);
 	}
 
 }

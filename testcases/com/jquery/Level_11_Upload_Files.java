@@ -39,19 +39,21 @@ public class Level_11_Upload_Files extends BaseTest {
 	public void Uploads_02_Multiple_File_Per_Time() {
 		homePage.refreshCurrentPage(driver);
 
-		// Step 01 - Load Multiple file
-		homePage.uploadMultipleFiles(driver, fileNames);
-		// Step 02 - Verify Multiple file loaded success
+		// Step 01 - Load multiple file
+		homePage.uploadMultipleFiles(driver, caoHungFileName);
+		homePage.uploadMultipleFiles(driver, daiNameFileName);
+		homePage.uploadMultipleFiles(driver, taipeiFileName);
+		// Step 02 - Verify single file loaded success
 		Assert.assertTrue(homePage.isFileLoadedByName(caoHungFileName));
 		Assert.assertTrue(homePage.isFileLoadedByName(daiNameFileName));
 		Assert.assertTrue(homePage.isFileLoadedByName(taipeiFileName));
 		// Step 03 - Click to Start button
 		homePage.clickToStartButton();
-		// Step 04 - Verify Multiple file link uploaded success
+		// Step 04 - Verify single file link uploaded success
 		Assert.assertTrue(homePage.isFileLinkUpLoadedByName(caoHungFileName));
 		Assert.assertTrue(homePage.isFileLinkUpLoadedByName(daiNameFileName));
 		Assert.assertTrue(homePage.isFileLinkUpLoadedByName(taipeiFileName));
-		// Step 05 - Verify Multiple file image uploaded success
+		// Step 05 - Verify single file image uploaded success
 		Assert.assertTrue(homePage.isFileImageUpLoadedByName(caoHungFileName));
 		Assert.assertTrue(homePage.isFileImageUpLoadedByName(daiNameFileName));
 		Assert.assertTrue(homePage.isFileImageUpLoadedByName(taipeiFileName));
