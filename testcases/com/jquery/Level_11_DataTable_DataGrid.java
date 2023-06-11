@@ -13,7 +13,7 @@ import commons.BaseTest;
 import pageObjects.jQuery.dataTable.HomePageObject;
 import pageObjects.jQuery.dataTable.PageGeneratorManager;
 
-public class Level_10_DataTable_DataGrid extends BaseTest {
+public class Level_11_DataTable_DataGrid extends BaseTest {
 
 	@Parameters({ "browser", "url" })
 	@BeforeClass()

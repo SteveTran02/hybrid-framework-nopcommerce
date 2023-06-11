@@ -12,7 +12,7 @@ import commons.BaseTest;
 import pageObjects.jQuery.uploadFile.HomePageObject;
 import pageObjects.jQuery.uploadFile.PageGeneratorManager;
 
-public class Level_11_Upload_Files extends BaseTest {
+public class Level_12_Upload_Files extends BaseTest {
 
 	@Parameters({ "browser", "url" })
 	@BeforeClass

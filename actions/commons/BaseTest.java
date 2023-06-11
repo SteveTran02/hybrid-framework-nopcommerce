@@ -3,6 +3,8 @@ package commons;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -31,7 +33,9 @@ public class BaseTest {
 		} else {
 			throw new BrowserNotSupport(browserName);
 		}
-		driver.manage().window().maximize();
+		// driver.manage().window().maximize();
+		driver.manage().window().setPosition(new Point(0, 0));
+		driver.manage().window().setSize(new Dimension(1920, 1080));
 		driver.get(GlobalConstants.PORTAL_PAGE_URL);
 		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		return driver;
