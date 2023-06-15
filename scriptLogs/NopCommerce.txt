@@ -1,0 +1,30 @@
+[2023-06-15 12:36:24,519] Register - Step 01: Navigate to 'Register' page
+[2023-06-15 12:36:25,633] Register - Step 02: Enter to Firstname textbox with value is 'Pure'
+[2023-06-15 12:36:25,767] Register - Step 03: Enter to Lastname textbox with value is 'Insight'
+[2023-06-15 12:36:25,890] Register - Step 04: Enter to Email Address textbox with value is 'pureinsight7311@gmail.com'
+[2023-06-15 12:36:26,012] Register - Step 05: Enter to Password textbox with value is 'pureinsight'
+[2023-06-15 12:36:26,118] Register - Step 06: Enter to Confirm Password textbox with value is 'pureinsight'
+[2023-06-15 12:36:26,239] Register - Step 07: Click to Register Button
+[2023-06-15 12:36:27,085] Register - Step 08: Verify register success message is displayed
+[2023-06-15 12:36:27,148]  -------------------------- FAILED -------------------------- 
+[2023-06-15 12:36:27,149] Register - Step 09: Click to Continue Button
+[2023-06-15 12:36:27,617] Login - Step 01: Navigate to 'Login' page
+[2023-06-15 12:36:28,044] Login - Step 02: Enter to Email Address textbox with value is 'pureinsight7311@gmail.com'
+[2023-06-15 12:36:28,168] Login - Step 03: Enter to Password textbox with value is 'pureinsight'
+[2023-06-15 12:36:28,296] Login - Step 04: Click to Login Button
+[2023-06-15 12:36:29,054] Login - Step 05: Verify 'My Account' link is displayed
+[2023-06-15 12:36:29,112]  -------------------------- PASSED -------------------------- 
+[2023-06-15 12:36:29,112] Login - Step 06: Navigate to 'My Account' page
+[2023-06-15 12:36:29,573] Login - Step 07: Verify 'Customer Info' page is displayed
+[2023-06-15 12:36:29,639]  -------------------------- FAILED -------------------------- 
+[2023-06-15 12:36:33,075] Register - Step 01: Navigate to 'Register' page
+[2023-06-15 12:36:34,186] Register - Step 02: Enter to Firstname textbox with value is 'Pure'
+[2023-06-15 12:36:34,306] Register - Step 03: Enter to Lastname textbox with value is 'Insight'
+[2023-06-15 12:36:34,434] Register - Step 04: Enter to Email Address textbox with value is 'pureinsight6999@gmail.com'
+[2023-06-15 12:36:34,559] Register - Step 05: Enter to Password textbox with value is 'pureinsight'
+[2023-06-15 12:36:34,677] Register - Step 06: Enter to Confirm Password textbox with value is 'pureinsight'
+[2023-06-15 12:36:34,794] Register - Step 07: Click to Register Button
+[2023-06-15 12:36:35,532] Register - Step 08: Verify register success message is displayed
+[2023-06-15 12:36:35,593]  -------------------------- FAILED -------------------------- 
+[2023-06-15 12:36:35,593] Register - Step 09: Click to Continue Button
+[2023-06-15 12:36:36,006] Login - Step 01: Navigate to 'Login' page
