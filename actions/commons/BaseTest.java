@@ -42,9 +42,9 @@ public class BaseTest {
 		} else {
 			throw new BrowserNotSupport(browserName);
 		}
-		// driver.manage().window().maximize();
-		driver.manage().window().setPosition(new Point(0, 0));
-		driver.manage().window().setSize(new Dimension(1920, 1080));
+		driver.manage().window().maximize();
+		// driver.manage().window().setPosition(new Point(0, 0));
+		// driver.manage().window().setSize(new Dimension(1920, 1080));
 		driver.get(GlobalConstants.PORTAL_PAGE_URL);
 		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		return driver;
