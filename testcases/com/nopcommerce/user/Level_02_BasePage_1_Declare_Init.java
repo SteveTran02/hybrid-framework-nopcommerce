@@ -1,3 +1,4 @@
+package com.nopcommerce.user;
 // package com.nopcommerce.user;
 //
 // import java.util.Random;
@@ -15,7 +16,7 @@
 //
 // import commons.BasePage;
 //
-// public class Level_02_Register_DRY_2_Static_Method {
+// public class Level_02_Register_DRY_1_Declare_Init {
 // WebDriver driver;
 // BasePage basepage;
 //
@@ -33,8 +34,7 @@
 // }
 //
 // driver = new FirefoxDriver();
-// basepage = BasePage.getBasePageObject();
-//
+// basepage = new BasePage();
 // explicitWait = new WebDriverWait(driver, 30);
 // driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 // driver.manage().window().maximize();

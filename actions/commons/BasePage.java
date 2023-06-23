@@ -30,7 +30,7 @@ import pageUIs.nopComerce.user.UserHomePageUI;
 
 public class BasePage {
 
-	public static BasePage getBasePageObject() {
+	public static BasePage getBasePage() {
 		return new BasePage();
 	}
 

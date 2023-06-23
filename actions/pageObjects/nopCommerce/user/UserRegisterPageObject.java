@@ -90,4 +90,10 @@ public class UserRegisterPageObject extends BasePage {
 		return PageGeneratorManager.getUserHomePage(driver);
 	}
 
+	public UserHomePageObject clickToNopEcomerceLogo() {
+		waitForElementClickable(driver, UserRegisterPageUI.NOP_ECOMMERCE_IMAGE);
+		clickToElement(driver, UserRegisterPageUI.NOP_ECOMMERCE_IMAGE);
+		return PageGeneratorManager.getUserHomePage(driver);
+	}
+
 }

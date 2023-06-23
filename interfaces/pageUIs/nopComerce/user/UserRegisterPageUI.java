@@ -17,4 +17,5 @@ public class UserRegisterPageUI {
 	public static final String EXISTING_EMAIL_ERROR_MESSAGE = "xpath=//div[contains(@class,'validation-summary-errors')]";
 	public static final String REGISTER_LINK = "xpath=//a[@class='ico-register']";
 	public static final String CONTINUE_BUTTON = "xpath=//a[contains(@class,'register-continue-button')]";
+	public static final String NOP_ECOMMERCE_IMAGE = "xpath=//div[@class='header-logo']//img";
 }

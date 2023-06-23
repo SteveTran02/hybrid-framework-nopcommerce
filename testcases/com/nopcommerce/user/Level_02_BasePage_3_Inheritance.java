@@ -3,10 +3,8 @@ package com.nopcommerce.user;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -15,7 +13,7 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 
-public class Level_02_Register_DRY_3_Extends extends BasePage {
+public class Level_02_BasePage_3_Inheritance extends BasePage {
 	WebDriver driver;
 
 	String projectPath = System.getProperty("user.dir");
