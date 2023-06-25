@@ -166,7 +166,7 @@ public class Level_05_Page_Factory extends BaseTest {
 
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		driver.quit();
+		closeBrowser();
 	}
 
 }

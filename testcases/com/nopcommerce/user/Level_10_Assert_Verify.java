@@ -89,7 +89,7 @@ public class Level_10_Assert_Verify extends BaseTest {
 
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		driver.quit();
+		closeBrowser();
 	}
 
 	private WebDriver driver;

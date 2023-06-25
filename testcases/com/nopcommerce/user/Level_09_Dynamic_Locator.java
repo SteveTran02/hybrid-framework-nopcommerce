@@ -103,7 +103,7 @@ public class Level_09_Dynamic_Locator extends BaseTest {
 
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		driver.quit();
+		closeBrowser();
 	}
 
 	private WebDriver driver;

@@ -95,7 +95,7 @@ public class Level_07_Switch_Page extends BaseTest {
 
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		driver.quit();
+		closeBrowser();
 	}
 
 	private WebDriver driver;

@@ -65,7 +65,7 @@ public class Level_08_Switch_Rule extends BaseTest {
 
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		driver.quit();
+		closeBrowser();
 	}
 
 	private WebDriver driver;

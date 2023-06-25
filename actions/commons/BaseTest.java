@@ -5,8 +5,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -30,21 +28,24 @@ public class BaseTest {
 
 	protected WebDriver getBrowserDriver(String browserName) {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
-		if (browser == BrowserList.FIREFOX) {
+		switch (browser) {
+		case FIREFOX:
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
-		} else if (browser == BrowserList.CHROME) {
+			break;
+		case CHROME:
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-		} else if (browser == BrowserList.EDGE) {
+			break;
+		case EDGE:
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-		} else {
+			break;
+		default:
 			throw new BrowserNotSupport(browserName);
 		}
+
 		driver.manage().window().maximize();
-		// driver.manage().window().setPosition(new Point(0, 0));
-		// driver.manage().window().setSize(new Dimension(1920, 1080));
 		driver.get(GlobalConstants.PORTAL_PAGE_URL);
 		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		return driver;
@@ -65,9 +66,19 @@ public class BaseTest {
 			throw new BrowserNotSupport(browserName);
 		}
 		driver.manage().window().maximize();
+		// driver.manage().window().setPosition(new Point(0, 0));
+		// driver.manage().window().setSize(new Dimension(1920, 1080));
 		driver.get(appUrl);
 		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		return driver;
+	}
+
+	protected void closeBrowser() {
+		if (driver == null) {
+			System.out.println("Browser is closed");
+		} else {
+			driver.quit();
+		}
 	}
 
 	protected String getEnvironmentUrl(String serverName) {
