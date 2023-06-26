@@ -7,7 +7,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -18,6 +17,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
 
 	private WebDriver driver;
+
 	// Init log
 	protected final Log log;
 
@@ -26,20 +26,23 @@ public class BaseTest {
 		log = LogFactory.getLog(getClass());
 	}
 
+	private String projectPath = System.getProperty("user.dir");
+
 	protected WebDriver getBrowserDriver(String browserName) {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
 		switch (browser) {
 		case FIREFOX:
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+			driver = WebDriverManager.firefoxdriver().create();
 			break;
 		case CHROME:
-			WebDriverManager.chromedriver().setup();
+			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 			break;
 		case EDGE:
-			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver();
+			driver = WebDriverManager.edgedriver().create();
+			break;
+		case IE:
+			driver = WebDriverManager.iedriver().arch32().create();
 			break;
 		default:
 			throw new BrowserNotSupport(browserName);
@@ -54,14 +57,11 @@ public class BaseTest {
 	protected WebDriver getBrowserDriver(String browserName, String appUrl) {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
 		if (browser == BrowserList.FIREFOX) {
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+			driver = WebDriverManager.firefoxdriver().create();
 		} else if (browser == BrowserList.CHROME) {
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			driver = WebDriverManager.chromedriver().create();
 		} else if (browser == BrowserList.EDGE) {
-			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver();
+			driver = WebDriverManager.edgedriver().create();
 		} else {
 			throw new BrowserNotSupport(browserName);
 		}
