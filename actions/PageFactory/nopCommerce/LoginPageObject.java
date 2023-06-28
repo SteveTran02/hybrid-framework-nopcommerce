@@ -2,6 +2,7 @@ package PageFactory.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -10,34 +11,42 @@ import commons.BasePageFactory;
 import pageUIs.nopComerce.user.UserLoginPageUI;
 
 public class LoginPageObject extends BasePageFactory {
-	WebDriver driver;
+	private WebDriver driver;
 
 	public LoginPageObject(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(this.driver, this);
 	}
 
-	// Page UI
+	// 1. Define Page UI by WebElement
+	@CacheLookup
 	@FindBy(id = "Email")
 	private WebElement emailTextbox;
 
+	@CacheLookup
 	@FindBy(id = "Password")
 	private WebElement passwordTextbox;
 
-	@FindBy(how = How.XPATH, using = "//button[contains(@class,'login-button')]")
+	@CacheLookup
+	@FindBy(xpath = "//button[contains(@class,'login-button')]")
 	private WebElement loginButton;
 
-	@FindBy(id = "Email-error")
+	@CacheLookup
+	@FindBy(xpath = "//span[@id='Email-error']")
 	private WebElement emailErrorMessage;
 
-	@FindBy(how = How.XPATH, using = "//div[contains(@class,'validation-summary-errors')]")
+	@CacheLookup
+	@FindBy(xpath = "//div[contains(@class,'validation-summary-errors')]")
 	private WebElement unsuccessfullErrorMessage;
 
-	// Page Object
+	@CacheLookup
+	@FindBy(xpath = "//a[@class='ico-login']")
+	private WebElement loginLink;
+
+	// 2. Page Object
 	public void inputToEmailTextbox(String invalidEmail) {
 		waitForElementVisible(driver, emailTextbox);
 		sendkeyToElement(driver, emailTextbox, invalidEmail);
-
 	}
 
 	public void inputToPasswordTextbox(String validPassword) {
@@ -59,4 +68,10 @@ public class LoginPageObject extends BasePageFactory {
 		waitForElementVisible(driver, unsuccessfullErrorMessage);
 		return getElementText(driver, unsuccessfullErrorMessage);
 	}
+
+	public void clickToLoginLink() {
+		waitForElementClickable(driver, loginLink);
+		clickToElement(driver, loginLink);
+	}
+
 }

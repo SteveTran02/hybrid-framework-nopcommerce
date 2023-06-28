@@ -2,126 +2,101 @@ package PageFactory.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import commons.BasePageFactory;
-import pageUIs.nopComerce.user.UserRegisterPageUI;
 
 public class RegisterPageObject extends BasePageFactory {
-	WebDriver driver;
+
+	private WebDriver driver;
 
 	public RegisterPageObject(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(this.driver, this);
 	}
 
-	// Page UI
-	@FindBy(how = How.XPATH, using = "//input[@id='FirstName']")
-	private WebElement firstNameTextBox;
+	// 1. Define Page UI by WebElement
+	@CacheLookup
+	@FindBy(how = How.ID, using = "FirstName")
+	private WebElement firstNameTextbox;
 
-	@FindBy(how = How.XPATH, using = "//input[@id='LastName']")
-	private WebElement lastNameTextBox;
+	@FindBy(how = How.ID, using = "LastName")
+	private WebElement lastNameTextbox;
 
-	@FindBy(how = How.XPATH, using = "//input[@id='Email']")
-	private WebElement emailTextBox;
+	@FindBy(how = How.ID, using = "Email")
+	private WebElement emailTextbox;
 
-	@FindBy(how = How.XPATH, using = "//input[@id='Password']")
-	private WebElement passwordTextBox;
+	@FindBy(how = How.ID, using = "Password")
+	private WebElement passwordTextbox;
 
-	@FindBy(how = How.XPATH, using = "//input[@id='ConfirmPassword']")
-	private WebElement confirmPasswordTextBox;
+	@FindBy(how = How.ID, using = "ConfirmPassword")
+	private WebElement confirmPasswordTextbox;
 
-	@FindBy(how = How.XPATH, using = "//button[@id='register-button']")
+	@FindBy(how = How.ID, using = "register-button")
 	private WebElement registerButton;
 
-	@FindBy(how = How.XPATH, using = "//span[@id='FirstName-error']")
+	@FindBy(how = How.ID, using = "FirstName-error")
 	private WebElement firstNameErrorMessage;
 
-	@FindBy(how = How.XPATH, using = "//span[@id='LastName-error']")
+	@FindBy(how = How.ID, using = "LastName-error")
 	private WebElement lastNameErrorMessage;
 
-	@FindBy(how = How.XPATH, using = "//span[@id='Email-error']")
+	@FindBy(how = How.ID, using = "Email-error")
 	private WebElement emailErrorMessage;
 
-	@FindBy(how = How.XPATH, using = "//span[@id='Password-error']")
+	@FindBy(how = How.ID, using = "Password-error")
 	private WebElement passwordErrorMessage;
 
-	@FindBy(how = How.XPATH, using = "//span[@id='ConfirmPassword-error']")
+	@FindBy(how = How.ID, using = "ConfirmPassword-error")
 	private WebElement confirmPasswordErrorMessage;
 
-	@FindBy(how = How.XPATH, using = "//div[@class='result']")
+	@FindBy(how = How.CLASS_NAME, using = "result")
 	private WebElement registerSuccessMessage;
 
 	@FindBy(how = How.XPATH, using = "//div[contains(@class,'validation-summary-errors')]")
 	private WebElement existingEmailErrorMessage;
 
-	@FindBy(how = How.XPATH, using = "//a[@class='ico-register']")
+	@FindBy(how = How.CLASS_NAME, using = "ico-register")
 	private WebElement registerLink;
 
 	@FindBy(how = How.XPATH, using = "//a[contains(@class,'register-continue-button')]")
 	private WebElement continueButton;
 
-	// Page Object/ Actions
-	public void clickToRegisterButton() {
-		waitForElementClickable(driver, registerButton);
-		clickToElement(driver, registerButton);
-	}
+	@FindBy(how = How.XPATH, using = "//div[@class='header-logo']//img")
+	private WebElement nopEcommerceImage;
 
+	// 2. Page Object/ Actions
 	public void inputToFirstNameTextbox(String firstName) {
-		waitForElementVisible(driver, firstNameTextBox);
-		sendkeyToElement(driver, firstNameTextBox, firstName);
+		waitForElementVisible(driver, firstNameTextbox);
+		sendkeyToElement(driver, firstNameTextbox, firstName);
 	}
 
 	public void inputToLastNameTextbox(String lastName) {
-		waitForElementVisible(driver, lastNameTextBox);
-		sendkeyToElement(driver, lastNameTextBox, lastName);
+		waitForElementVisible(driver, lastNameTextbox);
+		sendkeyToElement(driver, lastNameTextbox, lastName);
 	}
 
-	public void inputToEmailTextbox(String invalidEmailAddress) {
-		waitForElementVisible(driver, emailTextBox);
-		sendkeyToElement(driver, emailTextBox, invalidEmailAddress);
+	public void inputToEmailTextbox(String exsitingEmail) {
+		waitForElementVisible(driver, emailTextbox);
+		sendkeyToElement(driver, emailTextbox, exsitingEmail);
 	}
 
-	public void inputToPasswordTextbox(String password) {
-		waitForElementVisible(driver, passwordTextBox);
-		sendkeyToElement(driver, passwordTextBox, password);
+	public void inputToPasswordTextbox(String validPassword) {
+		waitForElementVisible(driver, passwordTextbox);
+		sendkeyToElement(driver, passwordTextbox, validPassword);
 	}
 
 	public void inputToConfirmPasswordTextbox(String confirmPassword) {
-		waitForElementVisible(driver, confirmPasswordTextBox);
-		sendkeyToElement(driver, confirmPasswordTextBox, confirmPassword);
+		waitForElementVisible(driver, confirmPasswordTextbox);
+		sendkeyToElement(driver, confirmPasswordTextbox, confirmPassword);
 	}
 
-	public String getErrorMessageAtEmailTextbox() {
-		waitForElementVisible(driver, emailErrorMessage);
-		return getElementText(driver, emailErrorMessage);
-	}
-
-	public String getErrorMessageAtPasswordTextbox() {
-		waitForElementVisible(driver, passwordErrorMessage);
-		return getElementText(driver, passwordErrorMessage);
-	}
-
-	public String getErrorExistingEmailMessage() {
-		waitForElementVisible(driver, existingEmailErrorMessage);
-		return getElementText(driver, existingEmailErrorMessage);
-	}
-
-	public String getErrorMessageAtFirstNameTextbox() {
-		waitForElementVisible(driver, firstNameErrorMessage);
-		return getElementText(driver, firstNameErrorMessage);
-	}
-
-	public String getErrorMessageAtLastNameTextbox() {
-		waitForElementVisible(driver, lastNameErrorMessage);
-		return getElementText(driver, lastNameErrorMessage);
-	}
-
-	public String getErrorMessageAtConfirmPasswordTextbox() {
-		waitForElementVisible(driver, confirmPasswordErrorMessage);
-		return getElementText(driver, confirmPasswordErrorMessage);
+	public void clickToRegisterButton() {
+		waitForElementClickable(driver, registerButton);
+		clickToElement(driver, registerButton);
 	}
 
 	public String getSuccessMessage() {
@@ -129,14 +104,8 @@ public class RegisterPageObject extends BasePageFactory {
 		return getElementText(driver, registerSuccessMessage);
 	}
 
-	public void clickToRegisterLink() {
-		waitForElementClickable(driver, registerLink);
-		clickToElement(driver, registerLink);
-	}
-
 	public void clickToContinueButton() {
 		waitForElementClickable(driver, continueButton);
 		clickToElement(driver, continueButton);
 	}
-
 }

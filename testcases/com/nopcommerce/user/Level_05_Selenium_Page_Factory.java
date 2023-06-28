@@ -1,11 +1,10 @@
 package com.nopcommerce.user;
 
-import java.util.Random;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import PageFactory.nopCommerce.HomePageObject;
@@ -13,13 +12,14 @@ import PageFactory.nopCommerce.LoginPageObject;
 import PageFactory.nopCommerce.RegisterPageObject;
 import commons.BaseTest;
 
-public class Level_05_Page_Factory extends BaseTest {
+public class Level_05_Selenium_Page_Factory extends BaseTest {
 	private WebDriver driver;
 	private String firstName, lastName, exsitingEmail, invalidEmail, notPoundEmail, validPassword, incorrectPassword, confirmPassword;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
 
+	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
 
@@ -74,7 +74,7 @@ public class Level_05_Page_Factory extends BaseTest {
 	@Test
 	public void Login_02_Invalid_Email() {
 		System.out.println("Login_02 - Step 01: Click to Login link");
-		homePage.clickToLoginLink();
+		loginPage.clickToLoginLink();
 		loginPage = new LoginPageObject(driver);
 
 		System.out.println("Login_02 - Step 02: Input into required textbox");
@@ -92,7 +92,7 @@ public class Level_05_Page_Factory extends BaseTest {
 	@Test
 	public void Login_03_Email_Not_Pound() {
 		System.out.println("Login_03 - Step 01: Click to Login link");
-		homePage.clickToLoginLink();
+		loginPage.clickToLoginLink();
 		loginPage = new LoginPageObject(driver);
 
 		System.out.println("Login_03 - Step 02: Input into required textbox");
@@ -109,7 +109,7 @@ public class Level_05_Page_Factory extends BaseTest {
 	@Test
 	public void Login_04_Existing_Email_Empty_Password() {
 		System.out.println("Login_04 - Step 01: Click to Login link");
-		homePage.clickToLoginLink();
+		loginPage.clickToLoginLink();
 		loginPage = new LoginPageObject(driver);
 
 		System.out.println("Login_04 - Step 02: Input into required textbox");
@@ -126,7 +126,7 @@ public class Level_05_Page_Factory extends BaseTest {
 	@Test
 	public void Login_05_Existing_Email_Incorrect_Password() {
 		System.out.println("Login_05 - Step 01: Click to Login link");
-		homePage.clickToLoginLink();
+		loginPage.clickToLoginLink();
 		loginPage = new LoginPageObject(driver);
 
 		System.out.println("Login_05 - Step 02: Input into required textbox");
@@ -144,7 +144,7 @@ public class Level_05_Page_Factory extends BaseTest {
 	@Test
 	public void Login_06_Valid_Email_Password() {
 		System.out.println("Login_05 - Step 01: Click to Login link");
-		homePage.clickToLoginLink();
+		loginPage.clickToLoginLink();
 		loginPage = new LoginPageObject(driver);
 
 		System.out.println("Login_05 - Step 02: Input into required textbox");
@@ -157,11 +157,6 @@ public class Level_05_Page_Factory extends BaseTest {
 		System.out.println("Login_05 - Step 03: Verify login successfully");
 		homePage = new HomePageObject(driver);
 		Assert.assertTrue(homePage.isToMyAccountLink());
-	}
-
-	public int getRandomNumber() {
-		Random random = new Random();
-		return random.nextInt(9999);
 	}
 
 	@AfterClass(alwaysRun = true)
