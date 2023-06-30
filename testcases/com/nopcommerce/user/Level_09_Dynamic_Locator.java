@@ -18,6 +18,15 @@ import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardPointPageObject;
 
 public class Level_09_Dynamic_Locator extends BaseTest {
+	private WebDriver driver;
+	private String firstName, lastName, EmailAddress, password, confirmPassword;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+	private UserLoginPageObject loginPage;
+	private UserCustomerInfoPageObject customerInfoPage;
+	private UserAddressPageObject addressPage;
+	private UserRewardPointPageObject rewardPointPage;
+	private UserMyProductReviewPageObject myProductReviewPage;
 
 	@Parameters("browser")
 	@BeforeClass
@@ -106,13 +115,4 @@ public class Level_09_Dynamic_Locator extends BaseTest {
 		closeBrowser();
 	}
 
-	private WebDriver driver;
-	private String firstName, lastName, EmailAddress, password, confirmPassword;
-	private UserHomePageObject homePage;
-	private UserRegisterPageObject registerPage;
-	private UserLoginPageObject loginPage;
-	private UserCustomerInfoPageObject customerInfoPage;
-	private UserAddressPageObject addressPage;
-	private UserRewardPointPageObject rewardPointPage;
-	private UserMyProductReviewPageObject myProductReviewPage;
 }

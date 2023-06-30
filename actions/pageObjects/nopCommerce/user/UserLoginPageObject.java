@@ -8,7 +8,7 @@ import pageUIs.nopComerce.user.UserLoginPageUI;
 
 public class UserLoginPageObject extends BasePage {
 
-	WebDriver driver;
+	private WebDriver driver;
 
 	public UserLoginPageObject(WebDriver driver) {
 		this.driver = driver;

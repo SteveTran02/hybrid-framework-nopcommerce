@@ -9,11 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import commons.BasePageFactory;
 
-public class RegisterPageObject extends BasePageFactory {
+public class RegisterPageFactory extends BasePageFactory {
 
 	private WebDriver driver;
 
-	public RegisterPageObject(WebDriver driver) {
+	public RegisterPageFactory(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(this.driver, this);
 	}

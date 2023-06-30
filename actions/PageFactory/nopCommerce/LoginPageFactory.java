@@ -10,10 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 import commons.BasePageFactory;
 import pageUIs.nopComerce.user.UserLoginPageUI;
 
-public class LoginPageObject extends BasePageFactory {
+public class LoginPageFactory extends BasePageFactory {
 	private WebDriver driver;
 
-	public LoginPageObject(WebDriver driver) {
+	public LoginPageFactory(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(this.driver, this);
 	}

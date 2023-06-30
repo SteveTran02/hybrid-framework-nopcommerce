@@ -17,6 +17,14 @@ import pageObjects.nopCommerce.user.UserHomePageObject;
 import pageObjects.nopCommerce.user.UserLoginPageObject;
 
 public class Level_08_Switch_Rule extends BaseTest {
+	private WebDriver driver;
+	private String userEmailAddress, userPassword;
+	private String adminEmailAddress, adminPassword;
+	private UserHomePageObject userHomePage;
+	private UserLoginPageObject userLoginPage;
+	private UserCustomerInfoPageObject userCustomerInfoPage;
+	private AdminLoginPageObject adminLoginPage;
+	private AdminDashBoardPageObject adminDashBoardPage;
 
 	@Parameters("browser")
 	@BeforeClass
@@ -68,12 +76,4 @@ public class Level_08_Switch_Rule extends BaseTest {
 		closeBrowser();
 	}
 
-	private WebDriver driver;
-	private String userEmailAddress, userPassword;
-	private String adminEmailAddress, adminPassword;
-	private UserHomePageObject userHomePage;
-	private UserLoginPageObject userLoginPage;
-	private UserCustomerInfoPageObject userCustomerInfoPage;
-	private AdminLoginPageObject adminLoginPage;
-	private AdminDashBoardPageObject adminDashBoardPage;
 }

@@ -18,6 +18,15 @@ import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardPointPageObject;
 
 public class Level_07_Switch_Page extends BaseTest {
+	private WebDriver driver;
+	private String firstName, lastName, EmailAddress, password, confirmPassword;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+	private UserLoginPageObject loginPage;
+	private UserCustomerInfoPageObject customerInfoPage;
+	private UserAddressPageObject addressPage;
+	private UserRewardPointPageObject rewardPointPage;
+	private UserMyProductReviewPageObject myProductReviewPage;
 
 	@Parameters("browser")
 	@BeforeClass
@@ -42,7 +51,6 @@ public class Level_07_Switch_Page extends BaseTest {
 		registerPage.inputToPasswordTextbox(password);
 		registerPage.inputToConfirmPasswordTextbox(confirmPassword);
 		registerPage.clickToRegisterButton();
-
 		Assert.assertEquals(registerPage.getSuccessMessage(), "Your registration completed");
 
 		homePage = registerPage.clickToContinueButton();
@@ -98,13 +106,4 @@ public class Level_07_Switch_Page extends BaseTest {
 		closeBrowser();
 	}
 
-	private WebDriver driver;
-	private String firstName, lastName, EmailAddress, password, confirmPassword;
-	private UserHomePageObject homePage;
-	private UserRegisterPageObject registerPage;
-	private UserLoginPageObject loginPage;
-	private UserCustomerInfoPageObject customerInfoPage;
-	private UserAddressPageObject addressPage;
-	private UserRewardPointPageObject rewardPointPage;
-	private UserMyProductReviewPageObject myProductReviewPage;
 }

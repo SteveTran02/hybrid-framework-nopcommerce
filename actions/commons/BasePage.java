@@ -585,7 +585,7 @@ public class BasePage {
 		getWebElement(driver, BasePageJQueryUI.UPLOAD_FILE).sendKeys(fullFileName);
 	}
 
-	// Tối ưu ở bài học Level_07_Switch Page
+	// Method Switch Page
 	public UserCustomerInfoPageObject openMyAccountPage(WebDriver driver) {
 		waitForElementClickable(driver, UserHomePageUI.MY_ACCOUNT_LINK);
 		clickToElement(driver, UserHomePageUI.MY_ACCOUNT_LINK);
@@ -610,7 +610,7 @@ public class BasePage {
 		return PageGeneratorManager.getUserRewardPointPage(driver);
 	}
 
-	// Tối ưu ở bài học Level_09_Dynamic Locator
+	// Method_Switch_Page_Using_Dynamic Locator
 	public BasePage openPagesAtMyAccountByName(WebDriver driver, String pageName) {
 		waitForElementClickable(driver, UserBasePageNopComerceUI.DYNAMIC_PAGES_AT_MY_ACCOUNT_AREA, pageName);
 		clickToElement(driver, UserBasePageNopComerceUI.DYNAMIC_PAGES_AT_MY_ACCOUNT_AREA, pageName);
@@ -633,7 +633,7 @@ public class BasePage {
 		clickToElement(driver, UserBasePageNopComerceUI.DYNAMIC_PAGES_AT_MY_ACCOUNT_AREA, pageName);
 	}
 
-	// Level 08: Switch role
+	// Method Switch role
 	public UserHomePageObject clickToLogoutLinkAtUserPage(WebDriver driver) {
 		waitForElementClickable(driver, UserBasePageNopComerceUI.LOG_OUT_LINK_AT_USER);
 		clickToElement(driver, UserBasePageNopComerceUI.LOG_OUT_LINK_AT_USER);
