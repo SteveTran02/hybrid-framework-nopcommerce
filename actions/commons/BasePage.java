@@ -362,7 +362,8 @@ public class BasePage {
 
 	/* Actions - Interaction */
 	public void hoverMouseToElement(WebDriver driver, String locatorType) {
-		new Actions(driver).moveToElement(getWebElement(driver, locatorType)).perform();
+		Actions action = new Actions(driver);
+		action.moveToElement(getWebElement(driver, locatorType)).perform();
 	}
 
 	public void doubleClickToElement(WebDriver driver, String locatorType) {
@@ -378,11 +379,13 @@ public class BasePage {
 	}
 
 	public void sendKeyBoardToElement(WebDriver driver, String locatorType, Keys key) {
-		new Actions(driver).sendKeys(getWebElement(driver, locatorType), key).perform();
+		Actions action = new Actions(driver);
+		action.sendKeys(getWebElement(driver, locatorType), key).perform();
 	}
 
 	public void sendKeyBoardToElement(WebDriver driver, String locatorType, Keys key, String... dynamicValues) {
-		new Actions(driver).sendKeys(getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)), key).perform();
+		Actions action = new Actions(driver);
+		action.sendKeys(getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)), key).perform();
 	}
 
 	/* JavascriptExecutor */

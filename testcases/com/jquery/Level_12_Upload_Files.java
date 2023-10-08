@@ -13,6 +13,12 @@ import pageObjects.jQuery.uploadFile.HomePageObject;
 import pageObjects.jQuery.uploadFile.PageGeneratorManager;
 
 public class Level_12_Upload_Files extends BaseTest {
+	private WebDriver driver;
+	private HomePageObject homePage;
+	String caoHungFileName = "caohung.jpg";
+	String daiNameFileName = "dainam.jpg";
+	String taipeiFileName = "taipei.jpg";
+	String fileNames[] = { caoHungFileName, daiNameFileName, taipeiFileName };
 
 	@Parameters({ "browser", "url" })
 	@BeforeClass
@@ -61,13 +67,7 @@ public class Level_12_Upload_Files extends BaseTest {
 
 	@AfterTest(alwaysRun = true)
 	public void afterClass() {
-		driver.quit();
+		closeBrowser();
 	}
 
-	private WebDriver driver;
-	private HomePageObject homePage;
-	String caoHungFileName = "caohung.jpg";
-	String daiNameFileName = "dainam.jpg";
-	String taipeiFileName = "taipei.jpg";
-	String fileNames[] = { caoHungFileName, daiNameFileName, taipeiFileName };
 }

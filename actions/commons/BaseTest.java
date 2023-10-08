@@ -65,8 +65,6 @@ public class BaseTest {
 			throw new BrowserNotSupport(browserName);
 		}
 		driver.manage().window().maximize();
-		// driver.manage().window().setPosition(new Point(0, 0));
-		// driver.manage().window().setSize(new Dimension(1920, 1080));
 		driver.get(appUrl);
 		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		return driver;

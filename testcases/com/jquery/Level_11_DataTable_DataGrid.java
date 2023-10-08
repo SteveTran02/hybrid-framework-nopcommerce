@@ -14,6 +14,10 @@ import pageObjects.jQuery.dataTable.HomePageObject;
 import pageObjects.jQuery.dataTable.PageGeneratorManager;
 
 public class Level_11_DataTable_DataGrid extends BaseTest {
+	private WebDriver driver;
+	private HomePageObject homePage;
+	List<String> actualAllCountryValue;
+	List<String> expectedAllCountryValues;
 
 	@Parameters({ "browser", "url" })
 	@BeforeClass()
@@ -109,11 +113,7 @@ public class Level_11_DataTable_DataGrid extends BaseTest {
 
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		driver.quit();
+		closeBrowser();
 	}
 
-	private WebDriver driver;
-	private HomePageObject homePage;
-	List<String> actualAllCountryValue;
-	List<String> expectedAllCountryValues;
 }

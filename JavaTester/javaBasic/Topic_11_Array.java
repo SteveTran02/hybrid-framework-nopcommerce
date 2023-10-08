@@ -102,11 +102,13 @@ public class Topic_11_Array {
 
 	@Test
 	public void TC_05() {
-		String fileName[] = { "caohung.jpg", "dainam.jpg", "taipei.jpg" };
-		String path = GlobalConstants.UPLOAD_FILE;
+		String fileImageNames[] = { "Taiwan.png", "UnitedState.png", "China.png" };
+
+		String filePath = GlobalConstants.UPLOAD_FILE;
 		String fullFileName = "";
-		for (String file : fileName) {
-			fullFileName = fullFileName + path + file + "\n";
+
+		for (String imageName : fileImageNames) {
+			fullFileName = fullFileName + filePath + imageName + "\n";
 		}
 		fullFileName = fullFileName.trim();
 		System.out.println(fullFileName);
